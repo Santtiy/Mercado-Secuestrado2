@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Secuestrado - Compra y Vende Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-top">
+                    <div class="logo">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h1>Mercado Secuestrado</h1>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Buscar productos, marcas y más...">
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="nav-icons">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificaciones</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user"></i>
+                            <span>Mi cuenta</span>
+                        </a>
+                        <a href="#" class="nav-link cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Carrito</span>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-bottom">
+                    <ul class="nav-menu">
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#ofertas">Ofertas del día</a></li>
+                        <li><a href="#equipo">Nuestro Equipo</a></li>
+                        <li><a href="#historial">Historial</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>¡Bienvenido a Mercado Secuestrado!</h2>
+                <p>Encuentra todo lo que necesitas al mejor precio</p>
+                <button class="btn-primary">Ver ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías Destacadas -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-grid">
+                <div class="category-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Tecnología</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Hogar</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Moda</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-car"></i>
+                    <h3>Vehículos</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Libros</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Productos se cargarán dinámicamente con JS -->
+            </div>
+            <button class="btn-secondary load-more" id="loadMoreBtn">Cargar más productos</button>
+        </div>
+    </section>
+
+    <!-- Ofertas del Día -->
+    <section id="ofertas" class="deals-section">
+        <div class="container">
+            <h2 class="section-title">Ofertas del Día</h2>
+            <div class="deals-timer">
+                <i class="fas fa-clock"></i>
+                <span>Tiempo restante: </span>
+                <span id="countdown" class="countdown">23:59:59</span>
+            </div>
+            <div class="deals-grid" id="dealsGrid">
+                <!-- Ofertas se cargarán dinámicamente con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Envío Gratis</h3>
+                    <p>En compras superiores a $50.000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compra Protegida</h3>
+                    <p>Tu dinero está seguro con nosotros</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Devoluciones</h3>
+                    <p>30 días para devolver tu compra</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Atención al cliente siempre disponible</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Múltiples Pagos</h3>
+                    <p>Tarjetas, PSE, efectivo y más</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Programa de Puntos</h3>
+                    <p>Acumula puntos con cada compra</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio de Desarrolladores -->
+    <section id="equipo" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Equipo de Desarrollo</h2>
+            <p class="team-description">Conoce a los desarrolladores detrás de Mercado Secuestrado</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Desarrollador 1</h3>
+                    <p class="member-role">Full Stack Developer</p>
+                    <p class="member-description">Especialista en React y Node.js con 5 años de experiencia en desarrollo web.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Desarrollador 2</h3>
+                    <p class="member-role">Frontend Developer</p>
+                    <p class="member-description">Experto en diseño UI/UX y animaciones web con CSS y JavaScript.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Desarrollador 3</h3>
+                    <p class="member-role">Backend Developer</p>
+                    <p class="member-description">Especializado en arquitectura de sistemas y bases de datos escalables.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Desarrollador 4</h3>
+                    <p class="member-role">DevOps Engineer</p>
+                    <p class="member-description">Enfocado en CI/CD, cloud computing y optimización de infraestructura.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Acerca de</h3>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Inversores</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Comprar</h3>
+                    <ul>
+                        <li><a href="#">Cómo comprar</a></li>
+                        <li><a href="#">Métodos de pago</a></li>
+                        <li><a href="#">Facturación</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Vender</h3>
+                    <ul>
+                        <li><a href="#">Cómo vender</a></li>
+                        <li><a href="#">Publicar</a></li>
+                        <li><a href="#">Tarifas</a></li>
+                        <li><a href="#">Estadísticas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="app-download">
+                        <p>Descarga nuestra app</p>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-apple"></i> App Store
+                        </a>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-google-play"></i> Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercado Secuestrado. Todos los derechos reservados.</p>
+                <p>Desarrollado por el equipo de Mercado Secuestrado</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="scrollTopBtn" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
