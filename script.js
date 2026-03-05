@@ -3,6 +3,8 @@ const productosData = [
     {
         id: 1,
         nombre: "iPhone 14 Pro Max 256GB",
+        marca: "Apple",
+        categoria: "Celulares y Smartphones",
         precio: 4599000,
         descuento: 15,
         envioGratis: true,
@@ -12,6 +14,8 @@ const productosData = [
     {
         id: 2,
         nombre: "Samsung Smart TV 55'' 4K UHD",
+        marca: "Samsung",
+        categoria: "Televisores",
         precio: 2299000,
         descuento: 20,
         envioGratis: true,
@@ -21,6 +25,8 @@ const productosData = [
     {
         id: 3,
         nombre: "PlayStation 5 Digital Edition",
+        marca: "Sony",
+        categoria: "Consolas",
         precio: 2799000,
         descuento: 0,
         envioGratis: true,
@@ -30,6 +36,8 @@ const productosData = [
     {
         id: 4,
         nombre: "Laptop HP Pavilion 15.6'' i7",
+        marca: "HP",
+        categoria: "Computación",
         precio: 3499000,
         descuento: 10,
         envioGratis: true,
@@ -39,6 +47,8 @@ const productosData = [
     {
         id: 5,
         nombre: "Apple AirPods Pro 2da Gen",
+        marca: "Apple",
+        categoria: "Audio",
         precio: 899000,
         descuento: 12,
         envioGratis: true,
@@ -48,6 +58,8 @@ const productosData = [
     {
         id: 6,
         nombre: "Bicicleta Montaña GW 29''",
+        marca: "GW",
+        categoria: "Deportes",
         precio: 1299000,
         descuento: 25,
         envioGratis: false,
@@ -57,6 +69,8 @@ const productosData = [
     {
         id: 7,
         nombre: "Nevera Samsung 21 pies",
+        marca: "Samsung",
+        categoria: "Electrodomésticos",
         precio: 2199000,
         descuento: 18,
         envioGratis: true,
@@ -66,6 +80,8 @@ const productosData = [
     {
         id: 8,
         nombre: "Zapatillas Nike Air Max 2023",
+        marca: "Nike",
+        categoria: "Calzado",
         precio: 459000,
         descuento: 30,
         envioGratis: true,
@@ -206,19 +222,30 @@ function buscarProductos() {
     const productsGrid = document.getElementById('productsGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
 
+    const heroBanner = document.querySelector('.hero-banner');
+    const categoriesSection = document.querySelector('.categories');
+
     if (query === '') {
         sectionTitle.textContent = 'Productos Destacados';
         loadMoreBtn.style.display = 'block';
+        if (heroBanner) heroBanner.style.display = 'block';
+        if (categoriesSection) categoriesSection.style.display = 'block';
         cargarProductos();
         return;
     }
 
-    // Filtrar considerando múltiples factores (nombre, etc.)
+    // Filtrar considerando múltiples factores (nombre, categorías, etc.)
     const productosFiltrados = productosData.filter(producto => {
-        const matchNombre = producto.nombre.toLowerCase().includes(query);
-        // Aquí se podrían agregar más criterios de búsqueda (categorías, marcas)
-        return matchNombre;
+        const queryWords = query.split(' ');
+        const productoTexto = `${producto.nombre} ${producto.marca || ''} ${producto.categoria || ''}`.toLowerCase();
+        
+        // Verifica si TODAS las palabras de búsqueda están en el texto del producto
+        return queryWords.every(word => productoTexto.includes(word));
     });
+
+    // Ocultar elementos que no son relevantes durante la búsqueda (estilo Mercado Libre)
+    if (heroBanner) heroBanner.style.display = 'none';
+    if (categoriesSection) categoriesSection.style.display = 'none';
 
     // Actualizar título con cantidad de resultados al estilo ML
     sectionTitle.innerHTML = `<span style="font-weight: normal; font-size: 1.2rem;">${productosFiltrados.length} resultados para </span>"${searchInput.value}"`;
@@ -240,6 +267,12 @@ function buscarProductos() {
         // Ordenar resultados por relevancia (simulado) y renderizar
         const productosHTML = productosFiltrados.map(producto => crearProductoCard(producto)).join('');
         productsGrid.innerHTML = productosHTML;
+    }
+
+    // Al buscar, hacer scroll suave hacia la sección de productos si no está visible
+    const productosSection = document.getElementById('productos');
+    if (productosSection) {
+        productosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -494,7 +527,7 @@ document.getElementById('searchInput').addEventListener('input', () => {
         if (query.length > 2) {
             buscarProductos();
         } else if (query.length === 0) {
-            cargarProductos();
+            buscarProductos();
         }
     }, 500);
 });
