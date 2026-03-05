@@ -601,6 +601,115 @@ body {
     transform: scale(1.1);
 }
 
+/* Portafolio de Servicios */
+.portfolio-section {
+    background-color: var(--light-gray);
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px 25px 30px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.portfolio-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.portfolio-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary-color), #5a9ef8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.portfolio-avatar i {
+    font-size: 2.5rem;
+}
+
+.portfolio-role {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.portfolio-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.portfolio-services,
+.portfolio-techs {
+    margin-bottom: 15px;
+}
+
+.portfolio-services h4,
+.portfolio-techs h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+}
+
+.portfolio-services ul {
+    list-style: disc;
+    padding-left: 18px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.portfolio-services li {
+    margin-bottom: 4px;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.portfolio-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.portfolio-github i {
+    font-size: 1.2rem;
+}
+
+.portfolio-github:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 .footer {
     background-color: #1a1a1a;
