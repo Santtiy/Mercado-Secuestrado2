@@ -469,8 +469,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Eventos para redes sociales
 document.querySelectorAll('.member-social a, .social-links a').forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        mostrarNotificacion('Funcionalidad de redes sociales en desarrollo');
+        const href = link.getAttribute('href') || '';
+        const esEnlaceReal = href.startsWith('http://') || href.startsWith('https://');
+
+        if (!esEnlaceReal) {
+            e.preventDefault();
+            mostrarNotificacion('Funcionalidad de redes sociales en desarrollo');
+        }
     });
 });
 
