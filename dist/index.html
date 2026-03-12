@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Secuestrado - Compra y Vende Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script type="module" crossorigin src="/assets/index-CaeiHIiZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CSOP3C7W.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-top">
+                    <a href="#" class="logo" aria-label="Ir al inicio">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h1>Mercado Secuestrado</h1>
+                    </a>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Buscar productos, marcas y más...">
+                        <button id="searchBtn" class="search-btn" aria-label="Buscar productos" title="Buscar productos">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="nav-icons">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificaciones</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user"></i>
+                            <span>Mi cuenta</span>
+                        </a>
+                        <a href="#" class="nav-link cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Carrito</span>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-bottom">
+                    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item has-submenu">
+                            <button class="submenu-toggle" aria-expanded="false" aria-controls="menuCategorias" title="Ver categorias">
+                                Categorias <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <ul class="submenu" id="menuCategorias">
+                                <li><a href="#productos" data-category="tecnologia">Tecnologia</a></li>
+                                <li><a href="#productos" data-category="hogar">Hogar</a></li>
+                                <li><a href="#productos" data-category="moda">Moda</a></li>
+                                <li><a href="#productos" data-category="gaming">Gaming</a></li>
+                                <li><a href="#productos" data-category="vehiculos">Vehiculos</a></li>
+                                <li><a href="#productos" data-category="libros">Libros</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#ofertas">Ofertas del día</a></li>
+                        <li><a href="#historial">Historial</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>¡Bienvenido a Mercado Secuestrado!</h2>
+                <p>Encuentra todo lo que necesitas al mejor precio</p>
+                <button class="btn-primary">Ver ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías Destacadas -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-grid">
+                <div class="category-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Tecnología</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Hogar</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Moda</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-car"></i>
+                    <h3>Vehículos</h3>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Libros</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Productos se cargarán dinámicamente con JS -->
+            </div>
+            <button class="btn-secondary load-more" id="loadMoreBtn">Cargar más productos</button>
+        </div>
+    </section>
+
+    <!-- Ofertas del Día -->
+    <section id="ofertas" class="deals-section">
+        <div class="container">
+            <h2 class="section-title">Ofertas del Día</h2>
+            <div class="deals-timer">
+                <i class="fas fa-clock"></i>
+                <span>Tiempo restante: </span>
+                <span id="countdown" class="countdown">23:59:59</span>
+            </div>
+            <div class="deals-grid" id="dealsGrid">
+                <!-- Ofertas se cargarán dinámicamente con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Envío Gratis</h3>
+                    <p>En compras superiores a $50.000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compra Protegida</h3>
+                    <p>Tu dinero está seguro con nosotros</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Devoluciones</h3>
+                    <p>30 días para devolver tu compra</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Atención al cliente siempre disponible</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Múltiples Pagos</h3>
+                    <p>Tarjetas, PSE, efectivo y más</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Programa de Puntos</h3>
+                    <p>Acumula puntos con cada compra</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ...existing code... -->
+
+    <!-- Portafolio de Servicios de los Desarrolladores -->
+    <section id="portafolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Portafolio de Servicios</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-avatar">
+                            <img src="https://cdn.discordapp.com/attachments/1299190408554741781/1481657107282399333/IMG_2779.jpg?ex=69b41c36&is=69b2cab6&hm=d36d5aa76e8bcd466e0252497843a2665280eb2c67e8d487ffa4c03035775d1b&" alt="Foto de perfil de Juan Jose Enriquez Cordoba" style="width:100%;height:100%;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.12);" />
+                        </div>
+                        <div>
+                            <h3>Juan Jose Enriquez Cordoba</h3>
+                            <p class="portfolio-role">Estudiante de Programacion de Software</p>
+                        </div>
+                    </div>
+                    <p class="portfolio-description">
+                        Estudiante de 5to semestre en la Universidad Cooperativa de Colombia. Me enfoco en proyectos
+                        academicos y practicos para fortalecer mis bases en desarrollo web.
+                    </p>
+                    <div class="portfolio-services">
+                        <h4>Servicios ofrecidos</h4>
+                        <ul>
+                            <li>Desarrollo de interfaces web responsive</li>
+                            <li>Implementacion de logica con JavaScript para proyectos academicos</li>
+                            <li>Creacion de mini proyectos como reloj digital y reproductor de musica</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-techs">
+                        <h4>Tecnologías que maneja</h4>
+                        <div class="portfolio-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">GitHub</span>
+                        </div>
+                    </div>
+                    <a class="portfolio-github" href="https://github.com/Juanenriquezcc" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        Ver GitHub
+                    </a>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-avatar">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Foto de perfil de Samuel" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+                        </div>
+                        <div>
+                            <h3>Samuel</h3>
+                            <p class="portfolio-role">Frontend Developer</p>
+                        </div>
+                    </div>
+                    <p class="portfolio-description">
+                        Soy Samuel, desarrollador en formación enfocado en frontend. Me gusta crear interfaces limpias,
+                        responsivas y accesibles que ofrezcan una experiencia de usuario clara y fluida.
+                    </p>
+                    <div class="portfolio-services">
+                        <h4>Servicios ofrecidos</h4>
+                        <ul>
+                            <li>Maquetación responsive para desktop y mobile</li>
+                            <li>Desarrollo de interfaces con HTML, CSS y JavaScript</li>
+                            <li>Optimización de rendimiento en frontend</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-techs">
+                        <h4>Tecnologías que maneja</h4>
+                        <div class="portfolio-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                        </div>
+                    </div>
+                    <a class="portfolio-github" href="https://github.com/SamuelMenan" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        Ver GitHub
+                    </a>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <h3>Desarrollador 3</h3>
+                            <p class="portfolio-role">Backend / DevOps</p>
+                        </div>
+                    </div>
+                    <p class="portfolio-description">
+                        Enfocado en la estabilidad, seguridad y despliegue continuo de aplicaciones escalables
+                        en la nube.
+                    </p>
+                    <div class="portfolio-services">
+                        <h4>Servicios ofrecidos</h4>
+                        <ul>
+                            <li>Diseño de arquitecturas escalables</li>
+                            <li>Automatización de despliegues (CI/CD)</li>
+                            <li>Monitoreo y observabilidad de aplicaciones</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-techs">
+                        <h4>Tecnologías que maneja</h4>
+                        <div class="portfolio-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    <a class="portfolio-github" href="https://github.com/desarrollador3" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        Ver GitHub
+                    </a>
+                </article>
+                    <article class="portfolio-card">
+                        <div class="portfolio-header">
+                            <div class="portfolio-avatar">
+                                <img src="https://cdn.discordapp.com/attachments/1235371416237510667/1481318886543720508/spitermans.jpg?ex=69b2e138&is=69b18fb8&hm=3b49407e10605b24d84aa8d163d9ad647c10c5564c62c28d95723d5795f62ade&" alt="Foto de perfil de Santiago Bustos López" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+                            </div>
+                            <div>
+                                <h3>Santiago Bustos López</h3>
+                                <p class="portfolio-role">Desarrollador en formación</p>
+                            </div>
+                        </div>
+                        <p class="portfolio-description">
+                            Soy desarrollador en formación con interés en el desarrollo web, la arquitectura y la creación de soluciones tecnológicas. Me interesa combinar programación, diseño y estructura para crear proyectos funcionales, bien organizados y con una buena experiencia de usuario.
+                        </p>
+                        <div class="portfolio-services">
+                            <h4>Servicios ofrecidos</h4>
+                            <ul>
+                                <li>Desarrollo de páginas web con HTML, CSS y JavaScript</li>
+                                <li>Diseño de interfaces web responsive</li>
+                                <li>Creación y gestión de repositorios con Git y GitHub</li>
+                                <li>Desarrollo de portafolios web y proyectos digitales</li>
+                                <li>Apoyo en prototipado y diseño de interfaces</li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-techs">
+                            <h4>Tecnologías que maneja</h4>
+                            <div class="portfolio-tags">
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">GitHub</span>
+                            </div>
+                        </div>
+                        <a class="portfolio-github" href="https://github.com/Santtiy" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            Ver GitHub
+                        </a>
+                    </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historial -->
+    <section id="historial" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Historial de Actividad</h2>
+            <p class="team-description">Pronto podras ver aqui tus ultimas busquedas y visitas.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Acerca de</h3>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Inversores</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Comprar</h3>
+                    <ul>
+                        <li><a href="#">Cómo comprar</a></li>
+                        <li><a href="#">Métodos de pago</a></li>
+                        <li><a href="#">Facturación</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Vender</h3>
+                    <ul>
+                        <li><a href="#">Cómo vender</a></li>
+                        <li><a href="#">Publicar</a></li>
+                        <li><a href="#">Tarifas</a></li>
+                        <li><a href="#">Estadísticas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="app-download">
+                        <p>Descarga nuestra app</p>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-apple"></i> App Store
+                        </a>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-google-play"></i> Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercado Secuestrado. Todos los derechos reservados.</p>
+                <p>Desarrollado por el equipo de Mercado Secuestrado</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>
